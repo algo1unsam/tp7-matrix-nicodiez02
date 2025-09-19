@@ -2,7 +2,32 @@ import mensajeria.*
 import mensajeros.*
 
 
-describe "2 " {}
+describe "2 " {
+
+    test "contratar mensajero" {
+        mensajeria.contratar(morfeo)
+        assert.equals(true, mensajeria.hayMensajeros())
+    }
+
+
+    test "despedir mensajero" {
+        mensajeria.contratar(morfeo)
+        mensajeria.despedir(morfeo)
+        assert.equals(false, mensajeria.hayMensajeros())
+    }
+
+
+    test "primer mensajero" {
+        mensajeria.contratar(morfeo)
+        paquete.pagar()
+        assert.equals(true, mensajeria.puedeSerEntregado(paquete))
+    }
+    test "ultimo mensajero" {
+        mensajeria.contratar(morfeo)
+        assert.equals(90, mensajeria.pesoUltimoMensajero())
+    }
+
+}
 
 
 describe "3 " {}
